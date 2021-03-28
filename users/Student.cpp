@@ -6,5 +6,5 @@
 
 Student::Student(const string &fName, const string &lName) : User(fName, lName) {
     this->userType = USER_STUDENT;
-    this->levelType = LEVEL_EMPTY;
+    this->levelType = LEVEL_NO_LEVEL;
 }

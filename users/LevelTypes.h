@@ -6,7 +6,8 @@
 #define HW2_LEVELTYPES_H
 
 enum LevelType {
-    LEVEL_EMPTY = 0,
+    LEVEL_BLUE = 0,
+    LEVEL_NO_LEVEL,
     LEVEL_GREEN,
     LEVEL_YELLOW,
     LEVEL_RED,

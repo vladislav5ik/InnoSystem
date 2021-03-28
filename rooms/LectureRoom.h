@@ -8,8 +8,11 @@
 #include "Room.h"
 
 class LectureRoom : public Room {
+protected:
+    bool enterRoom(LevelType levelType, UserType userType) override;
+
 public:
-    explicit LectureRoom(const string &roomName);
+    LectureRoom(const string &roomName, int roomFloor);
 };
 
 #endif //HW2_LECTUREROOM_H

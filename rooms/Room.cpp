@@ -5,9 +5,11 @@
 #include "Room.h"
 
 int Room::roomCount = 0;
+bool Room::emergencyStatus = false;
 
-Room::Room(const string &roomName) {
+Room::Room(const string &roomName, int roomFloor) {
     this->roomName = roomName;
+    this->roomFloor = roomFloor;
     roomId = roomCount++;
 }
 
@@ -41,3 +43,21 @@ string Room::getStringRoomType() {
             return "director cabinet";
     }
 }
+
+void Room::setEmergencyStatus(bool status) {
+    emergencyStatus = status;
+}
+
+bool Room::isEmergency() {
+    return emergencyStatus;
+}
+
+int Room::getRoomFloor() const {
+    return roomFloor;
+}
+
+bool Room::enterRoom(LevelType levelType, UserType userType) {
+    cout << "err" << endl; //todo delete it
+    return false;
+}
+

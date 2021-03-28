@@ -8,8 +8,11 @@
 #include "Room.h"
 
 class CabinetRoom : public Room {
+protected:
+    bool enterRoom(LevelType levelType, UserType userType);
+
 public:
-    explicit CabinetRoom(const string &roomName);
+    CabinetRoom(const string &roomName, int roomFloor);
 };
 
 
