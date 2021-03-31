@@ -11,7 +11,10 @@
 #include "LevelTypes.h"
 #include "../rooms/Room.h"
 #include "iostream"
+
 using namespace std;
+
+class Room;
 
 class User {
 protected:
@@ -20,18 +23,23 @@ protected:
     UserType userType;
     LevelType levelType;
     set<int> uniqueAccessRoomIds;
+
     User(const string &fName, const string &lName);
+
 public:
+    bool enterRoom(Room &room);
+
     string getFirstName();
+
     string getLastName();
+
     string getStringUserType();
-    bool setAccessLevel(User& user, LevelType setLevelType);
-    bool setSpecificRoomAccess(User& user, Room setRoom);
-    bool enterRoom(Room room);
+
+    bool setAccessLevel(User &user, LevelType setLevelType);
+
+    bool setSpecificRoomAccess(User &user, Room setRoom);
+
 };
-
-
-
 
 
 #endif //HW2_USER_H

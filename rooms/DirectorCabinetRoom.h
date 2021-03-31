@@ -8,8 +8,11 @@
 #include "Room.h"
 
 class DirectorCabinetRoom : public Room {
+protected:
+    bool enterRoom(LevelType levelType,
+                   UserType userType); //todo override all enterRoom methods? In each class same construction (how to avoid?)
 public:
-    explicit DirectorCabinetRoom(const string &roomName);
+    DirectorCabinetRoom(const string &roomName, int roomFloor);
 };
 
 

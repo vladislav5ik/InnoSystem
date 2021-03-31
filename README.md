@@ -4,14 +4,14 @@
 This is a room access control program for university residents. It allows you to flexibly configure the university's security system so that an sleepy student doesn't accidentally open the director's room :)
 ### Initial Settings
 The program has initial access settings, which are shown in the table below.
-|                       | Student                | Lab Employee | Professor      | Director  | Admin       |
-|-----------------------|------------------------|--------------|----------------|-----------|-------------|
-|                       | LEVEL_EMPTY (Students) | LEVEL_GREEN  | LEVEL_YELLOW   | LEVEL_RED | LEVEL_ADMIN |
-| ROOM_LECTURE          |` + `                     | `+ `           |` +`              |` + `        |` +`           |
-| ROOM_CLASS            |` + ` if Student           | `+ `           | `+ `             |` + `        |` + `          |
-| ROOM_CONFERENCE       |                        |              |` +   `           | `+ `        | `+`           |
-| ROOM_CABINET          |                        |              |` +` if Prosessor | `+`         |` + `          |
-| ROOM_DIRECTOR_CABINET |                        |              |                | `+ `        | `+`           | 
+| User ->               | Guest              | Student          | Lab Employee | Professor          | Director  | Admin       |
+|-----------------------|--------------------|------------------|--------------|--------------------|-----------|-------------|
+| Default level ->      | LEVEL_BLUE         | LEVEL_NO_LEVEL   | LEVEL_GREEN  | LEVEL_YELLOW       | LEVEL_RED | LEVEL_ADMIN |
+| ROOM_LECTURE          | ` + ` if 1st floor | ` + `            | ` + `        | ` + `              | ` + `     | ` + `       |
+| ROOM_CLASS            |                    | ` + ` if Student | ` + `        | ` + `              | ` + `     | ` + `       |
+| ROOM_CONFERENCE       | ` + ` if 1st floor |                  |              | ` + `              | ` + `     | ` + `       |
+| ROOM_CABINET          |                    |                  |              | ` + ` if Prosessor | ` + `     | ` + `       |
+| ROOM_DIRECTOR_CABINET |                    |                  |              |                    | ` + `     | ` + `       |
 > A `+` indicates if there is access to the room for that level. 
 
 Also for `students` and `professors` are allocated **specific conditions** for some rooms. 
@@ -23,12 +23,12 @@ In this case: a student with a yellow level of access will not be able to enter 
 - Then you can create instances of people and rooms and manage them in your program .
 
 ### Usage 
-- When creating a user or room, you must specify a **name**. (In some cases, there is unneccessary additional information, such as the director's favorite joke or whether the admin has awards.)
+- When creating a user, you must specify a **name**. (In some cases, there is unneccessary additional information, such as the director's favorite joke or whether the admin has awards.) For room, in addition to the name, also needed the **floor**. 
 	```C++
 	User director1 = Director("Monica", "Garza", "Favorite Joke, haha!");
 	```
 	```C++
-	Room bestRoom = Cabinet("404");
+	Room bestRoom = Cabinet("404", 4);
 	```
 
 
@@ -58,4 +58,9 @@ In this case: a student with a yellow level of access will not be able to enter 
 	```
 	If you have a lot of students or staff, you can take the **massEnter** function from `main.cpp` to mass-check access.
 	
+- In case of an emergency, all doors can be opened for all people.
+    ```c++
+    Room::setEmergencyStatus(true); //emergency situation, leave the building immediately!
+    Room::setEmergencyStatus(false); //false alarm :)
+```
 *Enjoy using the program!*

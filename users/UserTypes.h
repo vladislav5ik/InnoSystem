@@ -6,7 +6,8 @@
 #define HW2_USERTYPES_H
 
 enum UserType {
-    USER_STUDENT = 0,
+    USER_GUEST = 0,
+    USER_STUDENT,
     USER_LAB_EMPLOYEE,
     USER_PROFESSOR,
     USER_DIRECTOR,

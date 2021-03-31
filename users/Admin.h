@@ -4,6 +4,7 @@
 
 #ifndef HW2_ADMIN_H
 #define HW2_ADMIN_H
+
 #include "User.h"
 
 class Admin : public User {
